@@ -1,3 +1,4 @@
+argc=$#
 source ./is_string_empty.sh
 source ./exit_on_command_failure.sh
 
@@ -5,11 +6,11 @@ source ./exit_on_command_failure.sh
 #arg2 -> expected argument count
 function verify_arg_count()
 {
-    passed_arg_count="$1"
+    passed_arg_count=$argc
     expected_arg_count=$2
 
     is_string_empty $expected_arg_count
-    exit_on_command_failure
+    exit_on_command_failure $LINENO
 
     if [ $passed_arg_count -lt $expected_arg_count ]; then
         echo "[ error ] argument count Less than expected"
@@ -20,4 +21,5 @@ function verify_arg_count()
     return 1
 }
 
-#verify_arg_count $passed_arg_count $1
+#example 
+#verify_arg_count $argc <expected_arg_coount>
