@@ -1,0 +1,79 @@
+source ./exit_on_command_failure.sh
+source ./string_helper.sh
+
+function remove_suffix() ##arg1 - "main string", arg2 - "suffix to be removed"
+{   
+    is_string_empty $1
+    exit_on_command_failure $LINENO
+    
+    is_string_empty $2
+    exit_on_command_failure $LINENO
+ 
+    main_string=$1
+    suffix=$2
+    #output=${file_name%.*} #Remove all string after . and .
+    output=${main_string%$suffix}
+    echo $output
+}   
+
+function usage()
+{
+    echo "Usage: "
+    echo ""
+    echo "      remove_suffix \"string\" \"suffix to remove\""
+    echo ""
+    echo ""
+    echo "Example 1: "
+    echo ""
+    echo "      remove_suffix \"test.exe\" \".exe\""
+    echo ""
+    echo "This command will remove the \".exe\" suffix from the given string "
+    echo ""
+    echo "Example 2: "
+    echo ""
+    echo "      remove_suffix \"test.exe\" \".*\""
+    echo ""
+    echo "This command will remove all characters after \".\" from the given string"
+    echo ""
+
+}
+
+if [ $# -lt 2 ]; then
+    usage
+    exit 1
+fi
+
+if [ -z "$1" ]; then
+    echo
+    echo "Error: argument 1 is empty"
+    echo
+    usage
+    exit 1
+fi
+
+if [ -z "$2" ]; then
+    echo
+    echo "Error: argument 2 is empty"
+    echo
+    usage
+    exit 1
+fi
+
+remove_suffix "$1" "$2"
+: '
+test()
+{
+    file_name="file.jpg"
+    
+    #suffix='.exe'
+    suffix='.*' #remove . and everything after .
+ 
+    #Note: $suffix is inside “"
+
+    out=$(remove_suffix $file_name "$suffix")
+    echo $out
+    
+}   
+
+test
+'

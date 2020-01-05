@@ -1,0 +1,59 @@
+#!/bin/bash
+
+source ./exit_on_command_failure.sh
+source ./string_helper.sh
+
+#arg1 - "main string", arg2 - "prefix to be removed"
+function remove_prefix() 
+{   
+    
+    is_string_empty $1
+    exit_on_command_failure $LINENO
+    
+    is_string_empty $2
+    exit_on_command_failure $LINENO
+    
+    main_string=$1
+    prefix=$2
+    output=${main_string##$prefix}
+    echo $output
+}
+
+function usage()
+{
+    echo "Usage: "
+    echo ""
+    echo "      remove_prefix \"string\" \"prefix to remove\""
+    echo ""
+    echo ""
+    echo "Example: "
+    echo ""
+    echo "      remove_prefix \"/home/test/file.jpg\" \"*/\""
+    echo ""
+    echo "This command will remove all character before \"/\" from the given string"
+    echo ""
+    echo ""
+}
+
+if [ $# -lt 2 ]; then
+    usage
+    exit 1
+fi
+
+if [ -z "$1" ]; then
+    echo
+    echo "Error: argument 1 is empty"
+    echo
+    usage
+    exit 1
+fi
+
+if [ -z "$2" ]; then
+    echo
+    echo "Error: argument 2 is empty"
+    echo
+    usage
+    exit 1
+fi
+
+remove_prefix "$1" "$2"
