@@ -1,5 +1,11 @@
-## Essential helper functions/scripts for programming in bash
+## Essential bash helper commands for Linux Adminstrators / Automation Experts
 
-This repo contains a set of helper functions/scripts for programming in bash. The functions are mainly targetting linux system automation, network monitoring etc
+This repo contains a set of bash helper commands for Linux Adminstrators / Automation Experts.
 
+## Commands [ ./src/ ]:
+
+    - remove_suffix
+    - remove_prefix
+    - edit_xml_tag_value
+    - get_leaf_from_path 
 
