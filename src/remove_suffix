@@ -1,5 +1,13 @@
-source ./exit_on_command_failure.sh
-source ./string_helper.sh
+: '
+    Remove Suffix From A Given String
+
+                    Author: Viki (a) Vignesh Natarajan
+                    Firma : vikilabs.org 
+
+'
+
+source ./fnc_exit_on_command_failure.sh
+source ./fnc_string_helper.sh
 
 function remove_suffix() ##arg1 - "main string", arg2 - "suffix to be removed"
 {   

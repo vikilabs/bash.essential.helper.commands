@@ -1,5 +1,13 @@
 #!/bin/bash
 
+: '
+    Edit Tag Value From XML File
+
+                    Author: Viki (a) Vignesh Natarajan
+                    Firma : vikilabs.org 
+
+'
+
 function create_closing_tag() #arg1=tag_name
 {
     i=0

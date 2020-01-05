@@ -1,6 +1,6 @@
 argc=$#
-source ./is_string_empty.sh
-source ./exit_on_command_failure.sh
+source ./fnc_string_helper.sh
+source ./fnc_exit_on_command_failure.sh
 
 #arg1 -> passed argument count
 #arg2 -> expected argument count
