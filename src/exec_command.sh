@@ -1,4 +1,12 @@
-#prerequisite check 
+#!/bin/bash
+
+: '
+    Utility functions to execute a command and check status of the execution with logging
+    
+                    Author: Viki (a) Vignesh Natarajan
+                    Firma : vikilabs.org 
+
+'
 
 
 #print both success and failures
